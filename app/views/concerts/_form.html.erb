@@ -1,0 +1,26 @@
+<%= form_with(model: concert, local: true) do |f| %>
+       <div>
+              <%= f.label "Nombre" %>
+              <%= f.text_field :name %>
+       </div>
+       <div>
+              <%= f.label "Duracion" %>
+              <%= f.time_field :duration, value: '%H:%M' %>
+       </div>
+       <div>
+              <%= f.label "Audiciencia" %>
+              <%= f.number_field :audience, min: 0 %>
+       </div>
+       <div>
+              <%= f.label "Fecha del evento" %>
+              <%= f.date_field :event_date %>
+       </div>
+
+       <div>
+              <%= f.label 'group' %>
+              <%= f.select :group_id, options_from_collection_for_select(@groups), prompt: "Elije un grupo" %>
+       </div>
+       <div>
+              <%= f.submit "Subir" %>
+       </div>
+<%end%>
