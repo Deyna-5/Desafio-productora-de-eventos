@@ -1,2 +1,4 @@
-<h1>Groups#edit</h1>
-<p>Find me in app/views/groups/edit.html.erb</p>
+<h1 class="text-center my-5">Editar grupo</h1>
+
+<%= render "form", group: @group %>
+<button type="button" class="btn btn-light"><%= link_to "Atras", groups_path %></button>

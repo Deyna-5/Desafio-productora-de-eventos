@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :groups
-  resources :concerts
+  resources :concerts, excep: [:destroy, :show]
 
   root 'concerts#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
 end

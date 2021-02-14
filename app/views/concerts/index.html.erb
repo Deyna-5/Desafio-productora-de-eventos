@@ -1,2 +1,28 @@
-<h1>Concerts#index</h1>
-<p>Find me in app/views/concerts/index.html.erb</p>
+<h1 class="text-center my-4">Todos los conciertos</h1>
+
+<table class="table text-center">
+       <thead class="table-info">
+              <tr>
+                     <th>Nombre</th>
+                     <th>Duracion</th>
+                     <th>Audiencia</th>
+                     <th>Fecha</th>
+                     <th>Accesos</th>
+              </tr>
+       </thead>
+       <tbody>
+              <% @concerts.each do |f| %>
+                     <tr>
+                            <th> <%= f.name%> </th>
+                            <th> <%= f.duration %> </th>
+                            <th> <%= f.audience %> </th>
+                            <th> <%= f.event_date %> </th>
+                            <th><%= link_to "Editar", edit_concert_path(f.id) %></th>
+                     </tr>
+              <%end%>
+       </tbody>
+
+</table>
+
+<button type="button" class="btn btn-light my-4"><%= link_to "Crear un nuevo concierto", new_concert_path %>
+<button type="button" class="btn btn-light my-4"><%= link_to "Ver tabla de grupos", groups_path %></button>

@@ -1,0 +1,24 @@
+<h1 class="text-center my-5">Datos del grupo <%= @group.name %> </h1>
+
+<table class="table text-center">
+       <thead class="table-info">
+              <th>Nombre</th>
+              <th>Cantidad conciertos de este mes</th>
+              <th>Ultimo concierto</th>
+              <th>Fecha</th>
+              <th>Maxima audiencia</th>
+              <th>Maxima duracion de un concierto</th>
+       </thead>
+       <tbody>
+              <tr>
+                     <td><%= @group.name %></td>
+                     <td style="text-align: center"><%= @last_month_concerts.count%></td>
+                     <td><%= @last_month_concerts[0].name%></td>
+                     <td><%= (@last_month_concerts[0].event_date).strftime("%Y-%B-%A") %></td>
+                     <td><%= @max_audience[0].audience %></td>
+                     <td><%= @max_duration[0].duration.strftime("%H:%M")%></td>
+              </tr>
+       </tbody>
+</table>
+
+<button type="button" class="btn btn-light"><%= link_to "Atras", groups_path %></button>

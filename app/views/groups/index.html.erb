@@ -1,2 +1,39 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<h1 class="text-center my-5">Todos los grupos</h1>
+
+<table class="table text-center">
+       <thead class="table-info">
+              <th>Accesos</th>
+              <th>Nombre</th>
+              <th>Integrantes</th>
+              <th>Debut</th>
+              <th>Team</th>
+              <th>Cant. Conciertos</th>
+              <th>Concierto </th>
+       </thead>
+       <tbody>
+              <% @groups.each do |group| %>
+                     <tr>
+                            <td>
+                                   <%= link_to "Ver", group %>
+                                   <%= link_to "Borrar", group, method: :delete, data: {confirm: "Estas seguro?"}  %>
+                                   <%= link_to "Editar", edit_group_path(group.id) %>
+                            </td>
+                            <td> <%= group.name  %> </td>
+                            <td> <%= group.members %> </td>
+                            <td> <%= group.debut %> </td>
+                            <td> <%= group.team %> </td>
+                            <td> <%= group.total_concerts %> </td>
+                            <td> 
+                                   <ul>
+                                          <% group.concerts.each do |concert| %>
+                                                 <li> <%= "#{concert.name}, expectadores: #{concert.audience}" %> </li>
+                                          <%end%>
+                                   </ul>
+                            </td>
+                     </tr>
+              <%end%>
+       </tbody>
+</table>
+
+<button type="button" class="btn btn-light"><%= link_to "Ver tabla de conciertos", root_path%></button>
+<button type="button" class="btn btn-light"><%= link_to "Añadir un nuevo grupo", new_group_path%></button>

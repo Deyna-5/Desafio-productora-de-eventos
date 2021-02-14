@@ -1,0 +1,27 @@
+<div class="jumbotron text-left">
+       <%= form_with(model: group, local: true) do |f| %>
+              <div class=" my-4">
+                     <%= f.label "Nombre:" %>
+                     <%= f.text_field :name %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.label "Miembros:" %>
+                     <%= f.number_field :members %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.label "Debut:" %>
+                     <%= f.date_field :debut %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.label "Team:" %>
+                     <%= f.select :team, Group.teams.keys %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.submit "Subir" %>
+              </div>
+       <%end%>
+</div>

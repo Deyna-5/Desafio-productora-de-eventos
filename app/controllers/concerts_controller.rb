@@ -1,6 +1,7 @@
 class ConcertsController < ApplicationController
 
   def index
+    @concerts = Concert.all
   end
 
   def new
@@ -24,10 +25,7 @@ class ConcertsController < ApplicationController
     @concert.update(concert_params)
     redirect_to root_path
   end
-
-  def destroy
-  end
-
+  
   private
     def concert_params
       params.require(:concert).permit(:name, :duration, :audience, :event_date, :group_id)

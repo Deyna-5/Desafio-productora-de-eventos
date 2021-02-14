@@ -1,26 +1,32 @@
-<%= form_with(model: concert, local: true) do |f| %>
-       <div>
-              <%= f.label "Nombre" %>
-              <%= f.text_field :name %>
-       </div>
-       <div>
-              <%= f.label "Duracion" %>
-              <%= f.time_field :duration, value: '%H:%M' %>
-       </div>
-       <div>
-              <%= f.label "Audiciencia" %>
-              <%= f.number_field :audience, min: 0 %>
-       </div>
-       <div>
-              <%= f.label "Fecha del evento" %>
-              <%= f.date_field :event_date %>
-       </div>
+<div class="jumbotron text-left">
+       <%= form_with(model: concert, local: true) do |f| %>
+              <div class=" my-4">
+                     <%= f.label "Nombre:" %>
+                     <%= f.text_field :name %>
+              </div>
 
-       <div>
-              <%= f.label 'group' %>
-              <%= f.select :group_id, options_from_collection_for_select(@groups, :id, :name), prompt: "Elije un grupo" %>
-       </div>
-       <div>
-              <%= f.submit "Subir" %>
-       </div>
-<%end%>
+              <div class=" my-4">
+                     <%= f.label "Duracion:" %>
+                     <%= f.time_field :duration, value: '%H:%M' %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.label "Audiciencia:" %>
+                     <%= f.number_field :audience, min: 0 %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.label "Fecha del evento:" %>
+                     <%= f.date_field :event_date %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.label 'group:' %>
+                     <%= f.select :group_id, options_from_collection_for_select(@groups, :id, :name), prompt: "Elije un grupo" %>
+              </div>
+
+              <div class=" my-4">
+                     <%= f.submit "Subir" %>
+              </div>
+       <%end%>
+</div>
